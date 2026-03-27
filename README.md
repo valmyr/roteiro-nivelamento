@@ -1,2 +1,3 @@
 # Atividade em Dupla - Git e GitHub
-##Marcos Luz
+## Marcos Luz
+## Valmir Ferreira 
