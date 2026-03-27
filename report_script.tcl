@@ -1,4 +1,4 @@
-set fp [open "netlist.v" r]; # Diretório do arquivo 
+set fp [open "netlist.v" r]; # Diretório do arquivo, tclsh report_script.tcl 
 set file_txt [read $fp]; # Leitura do Arquivo netlist
 
 #puts $file_txt
@@ -19,5 +19,15 @@ puts "flipflop_D: ${flipflop_d} instâncias";
 puts "TOTAL: ${total} instâncias";
 
 
-set modulos [regexp -all {module} $file_txt]
+set blocos [regexp -all -inline {(?s)\mmodule\M.*?\mendmodule\M} $file_txt]
 
+puts "Quantidade de blocos: [llength $blocos]"
+
+set i 1
+foreach bloco $blocos {
+    puts "================ BLOCO $i ================"
+    puts $bloco
+    set subblocos [regexp -all -inline {(?s)\mmodule\M.*?\mendmodule\M} $bloco]
+    puts "Quantidade de blocos: [llength $subblocos]"
+    incr i
+}
