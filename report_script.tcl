@@ -1,15 +1,10 @@
 set fp [open "netlist.v" r]; # Diretório do arquivo 
 set file_txt [read $fp]; # Leitura do Arquivo netlist
-
-#puts $file_txt
-
 close $fp
-
-set T1 4
 
 set and [regexp -all {AND2} $file_txt]
 set xor [regexp -all {XOR2} $file_txt]
-set flipflop_d [regexp -all {flipflop_D ff} $file_txt]; # Teste para validar as os prints;
+set flipflop_d [regexp -all {flipflop_D ff} $file_txt];
 set total [expr {$flipflop_d + $and + $xor}];
 
 puts "=== RELATÓRIO DE CÉLULAS ===";
