@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+
 verilog=($(cd projeto; ls )) #Parenteses antes do cifrão para converter em uma lista
 src=($(cd projeto; ls *.v))
 docs=($(cd projeto; ls *.txt *.md))
@@ -51,4 +52,3 @@ for item in "${tb[@]}"; do
     echo "movendo $item -> tb" 
     mv projeto/$item projeto/tb
 done
-
